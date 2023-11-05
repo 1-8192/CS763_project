@@ -1,6 +1,7 @@
-# Trackr
+# CS763 Secure Software Development Project
 
 ## Overview
+Project for CS 763 Secure Software Development. The application I am using as a base is Trackr: https://github.com/BUMETCS673/group-project-team1/.
 Trackr is a simple app which allows users to track transaction against their bank account,
 so they can better understand their spending behaviours. The application is built using
 Spring Boot and React.
