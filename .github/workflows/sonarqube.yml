@@ -18,7 +18,7 @@
 ##
 ##     * b. Copy/paste your SonarQube host URL to your GitHub repository's secrets using the name SONAR_HOST_URL
 ##
-##     * c. Copy/paste the project Key into the args parameter below
+##     * c. Copy/paste theproject Key into the args parameter below
 ##          (You'll find this information in SonarQube by following the tutorial or by clicking on Project Information at the top-right of your project's homepage)
 #
 ## Feel free to take a look at our documentation (https://docs.sonarqube.org/latest/analysis/github-integration/)
