@@ -329,6 +329,14 @@ Heroku provides a simple command you can use to stream logs locally.
 
 Please refer to [Heroku Dev Center](https://devcenter.heroku.com/articles/logging) to learn more about logging.
 
+## Code Scanning
+
+Under construction.
+
+## Image Publishing
+
+The repository is set to publish images to Docker Hub upon on new version releases through a workflow. To publish the latest image, manually create a new version release through the Github UI.
+
 # References
 - React JS and Spring Data REST: https://spring.io/guides/tutorials/react-and-spring-data-rest/
 - Understanding the Container Component Pattern with React Hooks: https://blog.openreplay.com/understanding-the-container-component-pattern-with-react-hooks
