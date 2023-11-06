@@ -1,3 +1,7 @@
+on:
+  push:
+    branches: [ "main" ]
+
 steps:
   - name: ZAP Scan
     uses: zaproxy/action-baseline@v0.10.0
