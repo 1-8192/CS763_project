@@ -17,6 +17,7 @@
 		<javax.version>2.2</javax.version>
 		<java.version>1.8</java.version>
 		<jwt.version>3.19.2</jwt.version>
+		<sonar.host.url>http://localhost:9000</sonar.host.url>
 	</properties>
 
 	<dependencies>
