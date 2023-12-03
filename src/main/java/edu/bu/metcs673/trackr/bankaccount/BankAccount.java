@@ -4,21 +4,13 @@ import static edu.bu.metcs673.trackr.bankaccount.BankAccount.ACCOUNT_STATUS.ACTI
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
 
+import edu.bu.metcs673.trackr.common.EncryptionDoubleConverter;
+import edu.bu.metcs673.trackr.common.EncryptionStringConverter;
 import org.apache.commons.lang3.StringUtils;
 
 import edu.bu.metcs673.trackr.common.CommonConstants;
@@ -46,18 +38,22 @@ public class BankAccount {
 	@Column(nullable = false, length = 20)
 	@NotNull(message = CommonConstants.BLANK_ACCOUNT_TYPE)
 	@Enumerated(EnumType.STRING)
+	@Convert(converter = EncryptionStringConverter.class)
 	private ACCOUNT_TYPE accountType;
 
 	@Column(nullable = false)
 	@Size(min = 1, max = 255, message = CommonConstants.INVALID_ACCOUNT_DESC_LENGTH)
+	@Convert(converter = EncryptionStringConverter.class)
 	private String accountDescription;
 
 	@Column(nullable = false, precision = 2)
 	@PositiveOrZero(message = CommonConstants.INVALID_BALANCE_VALUE)
+	@Convert(converter = EncryptionDoubleConverter.class)
 	private double balance;
 
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
+	@Convert(converter = EncryptionStringConverter.class)
 	private ACCOUNT_STATUS status;
 	
 	@OneToMany

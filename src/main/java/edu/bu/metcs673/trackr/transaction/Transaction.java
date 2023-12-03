@@ -1,18 +1,10 @@
 package edu.bu.metcs673.trackr.transaction;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
+import edu.bu.metcs673.trackr.common.EncryptionDoubleConverter;
+import edu.bu.metcs673.trackr.common.EncryptionStringConverter;
 import org.apache.commons.lang3.StringUtils;
 
 import edu.bu.metcs673.trackr.bankaccount.BankAccount;
@@ -37,21 +29,26 @@ public class Transaction {
 	private BankAccount bankAccount;
 
 	@Column(nullable = false, precision = 2)
+	@Convert(converter = EncryptionDoubleConverter.class)
 	private double money;
 
 	@Column(nullable = false, length = 100)
+	@Convert(converter = EncryptionStringConverter.class)
 	private String time;
 
 	@Column(nullable = false)
 	@Size(max = 100, message = CommonConstants.INVALID_TRANSACTION_COU_LENGTH)
+	@Convert(converter = EncryptionStringConverter.class)
 	private String counterparty;
 
 	@Column
 	@Size(max = 255, message = CommonConstants.INVALID_TRANSACTION_TD_LENGTH)
+	@Convert(converter = EncryptionStringConverter.class)
 	private String transactionDescription;
 
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
+	@Convert(converter = EncryptionStringConverter.class)
 	private TRANSACTION_STATUS status;
 
 	// enum used for the 'status' field in the Transaction object

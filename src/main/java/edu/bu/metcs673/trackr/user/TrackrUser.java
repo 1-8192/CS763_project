@@ -1,15 +1,11 @@
 package edu.bu.metcs673.trackr.user;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import edu.bu.metcs673.trackr.common.EncryptionStringConverter;
 import org.springframework.validation.annotation.Validated;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -46,20 +42,23 @@ public class TrackrUser {
 	@Column(length = 100)
 	@NotBlank(message = CommonConstants.BLANK_FIRST_NAME)
 	@Size(min = 1, max = 100, message = CommonConstants.INVALID_FIRST_NAME_LENGTH)
+	@Convert(converter = EncryptionStringConverter.class)
 	private String firstName;
 
 	@Column(length = 100)
 	@NotBlank(message = CommonConstants.BLANK_LAST_NAME)
 	@Size(min = 1, max = 100, message = CommonConstants.INVALID_LAST_NAME_LENGTH)
+	@Convert(converter = EncryptionStringConverter.class)
 	private String lastName;
 
 	// code below defines different columns in the table (USERNAME, PASSWORD, EMAIL)
 	@Column(nullable = false, length = 50)
 	@NotBlank(message = CommonConstants.BLANK_USERNAME)
 	@Size(min = 1, max = 50, message = CommonConstants.INVALID_USERNAME_LENGTH)
+	@Convert(converter = EncryptionStringConverter.class)
 	private String username;
 
-	// extra column size is to account for hashed value
+	// extra column size is to account for hashed value. Password is already hashed, so we are not encrypting in the DB.
 	@Column(nullable = false, length = 200)
 	@NotBlank(message = CommonConstants.BLANK_PASSWORD)
 	@Size(min = 6, max = 200, message = CommonConstants.INVALID_PASSWORD_LENGTH)
@@ -70,6 +69,7 @@ public class TrackrUser {
 	@NotBlank(message = CommonConstants.BLANK_EMAIL)
 	@Size(max = 50, message = CommonConstants.INVALID_EMAIL_LENGTH)
 	@Email(regexp = CommonConstants.EMAIL_REGEX, message = CommonConstants.INVALID_EMAIL_FORMAT)
+	@Convert(converter = EncryptionStringConverter.class)
 	private String email;
 	
 }

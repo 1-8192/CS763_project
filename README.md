@@ -329,9 +329,12 @@ Heroku provides a simple command you can use to stream logs locally.
 
 Please refer to [Heroku Dev Center](https://devcenter.heroku.com/articles/logging) to learn more about logging.
 
+## Security
+
+
 ## Code Scanning
 
-Under construction.
+This project runs a Zap DAST scan on every push to Github as a Github action. Scans can be accessed here: https://github.com/1-8192/CS763_project/actions/workflows/zap.yml
 
 ## Image Publishing
 
