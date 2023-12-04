@@ -14,16 +14,28 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * Encryption utility class to encrypt data for database storage.
+ */
 @Component
 public class EncryptionUtility {
 
-    private String key = "1234567812345678";
-    private String vector = "1234567812345678";
-    private String cryptoAlgo = "AES/CBC/PKCS5PADDING";
+    // In a production environment we should store the key in Vault or another external management system,
+    // storing it in code like this defies the whole point of encryption.
+    private final String key = "0123456701234567";
+    private final String vector = "0123456701234567";
 
-    private String algo = "AES";
+    // Using the AES symmetric algorithm for encryption.
+    private final String cryptoAlgo = "AES/CBC/PKCS5PADDING";
+    private final String algo = "AES";
 
-    public String encryptString(String value) {
+    /**
+     * Encrypt string types.
+     * @param value String value we want to encrypt
+     * @return encrypted string.
+     * @throws RuntimeException
+     */
+    public String encryptString(String value) throws RuntimeException {
         try {
             IvParameterSpec iv = new IvParameterSpec(vector.getBytes(StandardCharsets.UTF_8));
             SecretKeySpec spec = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), algo);
@@ -35,12 +47,17 @@ public class EncryptionUtility {
             return Base64.encodeBase64String(encrypted);
         } catch (NoSuchPaddingException | NoSuchAlgorithmException | InvalidKeyException
                  | InvalidAlgorithmParameterException | IllegalBlockSizeException | BadPaddingException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-    return null;
     }
 
-    public String decryptString(String encrypted) {
+    /**
+     * Method to decrypt string.
+     * @param encrypted encrypted string
+     * @return decrypted String
+     * @throws RuntimeException
+     */
+    public String decryptString(String encrypted) throws RuntimeException {
         try {
             IvParameterSpec iv = new IvParameterSpec(vector.getBytes(StandardCharsets.UTF_8));
             SecretKeySpec spec = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), algo);
@@ -52,16 +69,25 @@ public class EncryptionUtility {
             return new String(original);
         } catch (NoSuchPaddingException | NoSuchAlgorithmException | InvalidKeyException
                  | InvalidAlgorithmParameterException | IllegalBlockSizeException | BadPaddingException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return null;
     }
 
+    /**
+     * Encrypt double types.
+     * @param value double to encrypt.
+     * @return encrypted string.
+     */
     public String encryptDouble(double value) {
         return encryptString(Double.toString(value));
     }
 
-    public double decryptDouble(String encrypted) {
+    /**
+     * Decrypt double.
+     * @param encrypted encrypted string.
+     * @return double that was decrypted.
+     */
+    public double decryptDouble(String encrypted) throws {
         String decryptedValue = decryptString(encrypted);
         if (decryptedValue != null) {
             return Double.parseDouble(decryptedValue);

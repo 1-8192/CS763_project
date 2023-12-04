@@ -331,6 +331,7 @@ Please refer to [Heroku Dev Center](https://devcenter.heroku.com/articles/loggin
 
 ## Security
 
+Database encryption has been implemented using JPA attribute converters. Data is encrypted using AES symmetric encryption.
 
 ## Code Scanning
 

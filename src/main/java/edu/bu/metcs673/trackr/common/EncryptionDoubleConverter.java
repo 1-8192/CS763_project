@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.AttributeConverter;
 
+/**
+ * Class to encrypt doubles for db encryption.
+ */
 public class EncryptionDoubleConverter implements AttributeConverter<Double, String> {
     @Autowired
     EncryptionUtility encryptionUtility;

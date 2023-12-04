@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.AttributeConverter;
 
+/**
+ * Class to encrypt string attributes.
+ */
 public class EncryptionStringConverter implements AttributeConverter<String,String> {
     @Autowired
     EncryptionUtility encryptionUtility;
