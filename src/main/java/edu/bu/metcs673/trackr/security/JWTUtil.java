@@ -1,5 +1,7 @@
 package edu.bu.metcs673.trackr.security;
 
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -58,6 +60,8 @@ public class JWTUtil {
 						.map(GrantedAuthority::getAuthority)
 						.collect(Collectors.toList()))
 				.withIssuedAt(new Date())
+				// Setting token expiration to 1 hour.
+				.withExpiresAt(Date.from(Instant.now().plus(1, ChronoUnit.HOURS)))
 				.withIssuer("Trackr Application").sign(Algorithm.HMAC256(jwtSecret));
 	}
 

@@ -25,7 +25,8 @@ public class EncryptionUtility {
     private final String key = "0123456701234567";
     private final String vector = "0123456701234567";
 
-    // Using the AES symmetric algorithm for encryption.
+    // Using the AES symmetric algorithm for encryption. Used the standard Cipher transformation example from documentation
+    // for AES 128 bit encryption.
     private final String cryptoAlgo = "AES/CBC/PKCS5PADDING";
     private final String algo = "AES";
 
