@@ -87,7 +87,7 @@ public class EncryptionUtility {
      * @param encrypted encrypted string.
      * @return double that was decrypted.
      */
-    public double decryptDouble(String encrypted) throws {
+    public double decryptDouble(String encrypted) {
         String decryptedValue = decryptString(encrypted);
         if (decryptedValue != null) {
             return Double.parseDouble(decryptedValue);
