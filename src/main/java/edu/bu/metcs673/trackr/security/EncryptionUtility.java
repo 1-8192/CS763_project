@@ -1,6 +1,7 @@
 package edu.bu.metcs673.trackr.security;
 
 import org.apache.tomcat.util.codec.binary.Base64;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.BadPaddingException;
@@ -21,9 +22,12 @@ import java.security.NoSuchAlgorithmException;
 public class EncryptionUtility {
 
     // In a production environment we should store the key in Vault or another external management system,
-    // storing it in code like this defies the whole point of encryption.
-    private final String key = "0123456701234567";
-    private final String vector = "0123456701234567";
+    // storing it in code like this defies the whole point of encryption
+    @Value("${encrypt_key}")
+    private String key;
+
+    @Value("${init_vector}")
+    private String vector;
 
     // Using the AES symmetric algorithm for encryption. Used the standard Cipher transformation example from documentation
     // for AES 128 bit encryption.

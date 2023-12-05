@@ -1,3 +1,4 @@
+edu/bu/metcs673/trackr/security/EncryptionUtilityTest.class
 edu/bu/metcs673/trackr/transaction/TransactionTest.class
 edu/bu/metcs673/trackr/user/TrackrUserServiceImplTest.class
 edu/bu/metcs673/trackr/security/JwtFilterTest.class

@@ -1,16 +1,22 @@
 package edu.bu.metcs673.trackr.security;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Unit tests for the Encryption Utility Class.
  */
+@SpringBootTest
 class EncryptionUtilityTest {
+
+    @Autowired
+    EncryptionUtility encryptionUtility;
 
     @Test
     void testEncryptAndDecryptString() {
-        EncryptionUtility encryptionUtility = new EncryptionUtility();
         String originalString = "This is a test";
 
         // Encrypt the string
@@ -25,7 +31,6 @@ class EncryptionUtilityTest {
 
     @Test
     void testEncryptAndDecryptDouble() {
-        EncryptionUtility encryptionUtility = new EncryptionUtility();
         double originalDouble = 500.38;
 
         // Encrypt the double

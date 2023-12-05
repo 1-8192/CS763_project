@@ -3,6 +3,7 @@ edu/bu/metcs673/trackr/user/TrackrUserRepository.class
 edu/bu/metcs673/trackr/user/TrackrUser.class
 edu/bu/metcs673/trackr/security/JWTUtil.class
 edu/bu/metcs673/trackr/api/GenericApiResponse.class
+edu/bu/metcs673/trackr/common/EncryptionStringConverter.class
 edu/bu/metcs673/trackr/controller/ExceptionController.class
 edu/bu/metcs673/trackr/transaction/TransactionService.class
 edu/bu/metcs673/trackr/security/WebSecurityConfig.class
@@ -20,6 +21,7 @@ edu/bu/metcs673/trackr/TrackrApp.class
 edu/bu/metcs673/trackr/bankaccount/BankAccount.class
 edu/bu/metcs673/trackr/user/TrackrUserController.class
 edu/bu/metcs673/trackr/user/TrackrUserServiceImpl.class
+edu/bu/metcs673/trackr/common/EncryptionDoubleConverter.class
 edu/bu/metcs673/trackr/transaction/TransactionController.class
 edu/bu/metcs673/trackr/bankaccount/BankAccount$ACCOUNT_TYPE.class
 edu/bu/metcs673/trackr/transaction/Transaction.class

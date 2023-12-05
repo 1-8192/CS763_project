@@ -23,6 +23,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
@@ -34,9 +36,12 @@ import edu.bu.metcs673.trackr.user.TrackrUserServiceImpl;
  *
  * @author Jean Dorancy
  */
+@SpringBootTest
 public class JwtFilterTest {
     private static final User USER = new User("test", "test", Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER")));
-    private final JWTUtil util = new JWTUtil("test");
+
+    @Autowired
+    private JWTUtil util;
     private final TrackrUserServiceImpl service = mock(TrackrUserServiceImpl.class);
     private JwtFilter filter;
 

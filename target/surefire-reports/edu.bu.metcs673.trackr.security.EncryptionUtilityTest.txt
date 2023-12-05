@@ -1,4 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: edu.bu.metcs673.trackr.security.EncryptionUtilityTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in edu.bu.metcs673.trackr.security.EncryptionUtilityTest
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in edu.bu.metcs673.trackr.security.EncryptionUtilityTest
+testEncryptAndDecryptDouble  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "edu.bu.metcs673.trackr.security.EncryptionUtility.encryptDouble(double)" because "this.encryptionUtility" is null
+	at edu.bu.metcs673.trackr.security.EncryptionUtilityTest.testEncryptAndDecryptDouble(EncryptionUtilityTest.java:35)
+
+testEncryptAndDecryptString  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "edu.bu.metcs673.trackr.security.EncryptionUtility.encryptString(String)" because "this.encryptionUtility" is null
+	at edu.bu.metcs673.trackr.security.EncryptionUtilityTest.testEncryptAndDecryptString(EncryptionUtilityTest.java:21)
+

@@ -10,6 +10,7 @@
 /Users/alessandroallegranzi/Desktop/bu_763/CS763_project/src/main/java/edu/bu/metcs673/trackr/controller/FrontendController.java
 /Users/alessandroallegranzi/Desktop/bu_763/CS763_project/src/main/java/edu/bu/metcs673/trackr/bankaccount/BankAccountDTO.java
 /Users/alessandroallegranzi/Desktop/bu_763/CS763_project/src/main/java/edu/bu/metcs673/trackr/user/TrackrUserDTO.java
+/Users/alessandroallegranzi/Desktop/bu_763/CS763_project/src/main/java/edu/bu/metcs673/trackr/common/EncryptionStringConverter.java
 /Users/alessandroallegranzi/Desktop/bu_763/CS763_project/src/main/java/edu/bu/metcs673/trackr/bankaccount/BankAccount.java
 /Users/alessandroallegranzi/Desktop/bu_763/CS763_project/src/main/java/edu/bu/metcs673/trackr/security/WebSecurityConfig.java
 /Users/alessandroallegranzi/Desktop/bu_763/CS763_project/src/main/java/edu/bu/metcs673/trackr/security/JwtFilter.java
@@ -22,6 +23,7 @@
 /Users/alessandroallegranzi/Desktop/bu_763/CS763_project/src/main/java/edu/bu/metcs673/trackr/security/JWTUtil.java
 /Users/alessandroallegranzi/Desktop/bu_763/CS763_project/src/main/java/edu/bu/metcs673/trackr/transaction/TransactionDTO.java
 /Users/alessandroallegranzi/Desktop/bu_763/CS763_project/src/main/java/edu/bu/metcs673/trackr/common/BaseController.java
+/Users/alessandroallegranzi/Desktop/bu_763/CS763_project/src/main/java/edu/bu/metcs673/trackr/common/EncryptionDoubleConverter.java
 /Users/alessandroallegranzi/Desktop/bu_763/CS763_project/src/main/java/edu/bu/metcs673/trackr/transaction/TransactionServiceImpl.java
 /Users/alessandroallegranzi/Desktop/bu_763/CS763_project/src/main/java/edu/bu/metcs673/trackr/api/GenericApiResponse.java
 /Users/alessandroallegranzi/Desktop/bu_763/CS763_project/src/main/java/edu/bu/metcs673/trackr/user/TokenRetrievalDTO.java
