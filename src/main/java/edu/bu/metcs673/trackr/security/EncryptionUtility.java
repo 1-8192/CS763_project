@@ -21,8 +21,7 @@ import java.security.NoSuchAlgorithmException;
 @Component
 public class EncryptionUtility {
 
-    // In a production environment we should store the key in Vault or another external management system,
-    // storing it in code like this defies the whole point of encryption
+    // Bringing in the encryption key and initialization vector from application context.
     @Value("${encrypt_key}")
     private String key;
 
