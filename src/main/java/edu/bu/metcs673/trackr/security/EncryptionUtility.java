@@ -30,7 +30,7 @@ public class EncryptionUtility {
 
     // Using the AES symmetric algorithm for encryption. Used the standard Cipher transformation example from documentation
     // for AES 128 bit encryption.
-    private final String cryptoAlgo = "AES/CBC/PKCS5PADDING";
+    private final String cryptoAlgo = "AES/GCM/NoPadding";
     private final String algo = "AES";
 
     /**
