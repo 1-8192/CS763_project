@@ -52,7 +52,7 @@ public class JWTUtil {
 						.collect(Collectors.toList()))
 				.withIssuedAt(new Date())
 				// Setting token expiration to 1 hour.
-				.withExpiresAt(Date.from(Instant.now().plus(4, ChronoUnit.HOURS)))
+				.withExpiresAt(Date.from(Instant.now().plus(10, ChronoUnit.MINUTES)))
 				.withIssuer("Trackr Application").sign(Algorithm.HMAC256(jwtSecret));
 	}
 
