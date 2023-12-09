@@ -8,7 +8,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
@@ -41,11 +41,11 @@ public class EncryptionUtility {
      */
     public String encryptString(String value) throws RuntimeException {
         try {
-            IvParameterSpec iv = new IvParameterSpec(vector.getBytes(StandardCharsets.UTF_8));
+            GCMParameterSpec gcmSpec = new GCMParameterSpec(128, (vector.getBytes(StandardCharsets.UTF_8)));
             SecretKeySpec spec = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), algo);
 
             Cipher cipher = Cipher.getInstance(cryptoAlgo);
-            cipher.init(Cipher.ENCRYPT_MODE, spec, iv);
+            cipher.init(Cipher.ENCRYPT_MODE, spec, gcmSpec);
 
             byte[] encrypted = cipher.doFinal(value.getBytes());
             return Base64.encodeBase64String(encrypted);
@@ -63,11 +63,11 @@ public class EncryptionUtility {
      */
     public String decryptString(String encrypted) throws RuntimeException {
         try {
-            IvParameterSpec iv = new IvParameterSpec(vector.getBytes(StandardCharsets.UTF_8));
+            GCMParameterSpec gcmSpec = new GCMParameterSpec(128, (vector.getBytes(StandardCharsets.UTF_8)));
             SecretKeySpec spec = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), algo);
 
             Cipher cipher = Cipher.getInstance(cryptoAlgo);
-            cipher.init(Cipher.DECRYPT_MODE, spec, iv);
+            cipher.init(Cipher.DECRYPT_MODE, spec, gcmSpec);
 
             byte[] original = cipher.doFinal(Base64.decodeBase64(encrypted));
             return new String(original);
