@@ -16,7 +16,7 @@ COPY . /usr/app/
 WORKDIR /usr/app/
 
 # Install dependencies in package.json
-RUN npm install
+RUN npm install --ignore-scripts
 
 # Run code sniff
 RUN npm test

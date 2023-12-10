@@ -16,8 +16,8 @@ COPY . /usr/app/src
 WORKDIR /usr/app/src
 
 # Install Webpack, Webpack CLI global then all the dependencies in package.json
-RUN npm install -g webpack webpack-cli
-RUN npm install
+RUN npm install -g webpack webpack-cli --ignore-scripts
+RUN npm install --ignore-scripts
 
 # Build the project JS code and bundle them under static/built/bundle.js to be included in the Uber JAR
 RUN webpack
