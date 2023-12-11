@@ -75,7 +75,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.authenticationEntryPoint( (request, response, authException) -> response.sendError(SC_UNAUTHORIZED, "UNAUTHORIZED"))
 			.and()
 			.sessionManagement()
-			.sessionCreationPolicy(STATELESS);
+			.sessionCreationPolicy(STATELESS)
+		;
 		
 		// Configure logout
 		http.logout(logout -> logout.logoutUrl("/logout")
